@@ -6,12 +6,15 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/11 12:50:18 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:08:55 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include "struct.h"
 
-int	main(int argc, char **argv)
-{}
+#include <stdio.h>
+int	main()
+{
+	printf("coucou");
+}
