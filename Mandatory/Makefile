@@ -16,6 +16,12 @@ vpath %.h $(INC_DIR):
 
 
 SRCS		=	main.c \
+				ft_strlen.c \
+				ft_calloc.c \
+				gnl_utils.c \
+				map_utils.c \
+				gnl.c \
+				ft_bzero.c \
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 

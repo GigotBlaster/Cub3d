@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/12 14:03:29 by lcadinot         ###   ########.fr       */
+/*   Created: 2022/11/08 21:32:22 by lcadinot          #+#    #+#             */
+/*   Updated: 2024/03/12 12:14:16 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/cub.h"
 
-int main(int ac, char **av)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_env *env;
+	void	*dest;
 
-	(void)ac;
-	env = (t_env *)malloc(sizeof(t_env));
-	env->map = ft_map_init();
-	env->map = ft_fill_grid(env, av[1]);
-	ft_free_map(env->map);
-	return (0);
+	if (nmemb > 0 && SIZE_MAX / size < nmemb)
+		return (NULL);
+	dest = malloc(nmemb * size);
+	if (!dest)
+		return (NULL);
+	ft_bzero(dest, nmemb * size);
+	return (dest);
 }
