@@ -22,6 +22,7 @@ SRCS		=	main.c \
 				map_utils.c \
 				gnl.c \
 				ft_bzero.c \
+				PlayerMove.c \
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 
