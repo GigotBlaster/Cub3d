@@ -16,6 +16,7 @@ vpath %.h $(INC_DIR):
 
 
 SRCS		=	main.c \
+				PlayerMove.c \
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 
