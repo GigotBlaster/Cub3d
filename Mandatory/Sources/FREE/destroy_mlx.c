@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   destroy_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 14:49:35 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:18:46 by npetitpi         ###   ########.fr       */
+/*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 14:17:53 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-char	*ft_strcpy(char *dest, char *src)
+void	destroy_all(t_data *game)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	if (game->window_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->window_ptr);
+	if (game->mlx_ptr)
 	{
-		dest[i] = src[i];
-		i++;
+		mlx_destroy_window(game->mlx_ptr, game->window_ptr);
+		ft_free(game->mlx_ptr);
 	}
-	dest[i] = '\0';
-	return (dest);
 }

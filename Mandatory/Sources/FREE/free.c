@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 14:49:35 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:18:46 by npetitpi         ###   ########.fr       */
+/*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 14:17:59 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include <cub.h>
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_free(void *adress)
+{
+	if (adress)
+		free(adress);
+	adress = NULL;
+}
+
+void	free_tab(char **tab, int n)
 {
 	int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	if (!tab)
+		return ;
+	while (tab[i] && (i < n || n == 0))
 	{
-		dest[i] = src[i];
+		ft_free(tab[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	ft_free(tab);
+}
+
+void	free_all(t_data *game)
+{
+	free_tab(game->map.map, 0);
+	destroy_all(game);
 }

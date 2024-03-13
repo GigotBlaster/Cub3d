@@ -6,7 +6,7 @@
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:31:58 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:40:52 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,25 @@
 
 typedef struct s_map
 {
-	char **grid;
-	char *n_texture_path;
-	char *s_texture_path;
-	char *e_texture_path;
-	char *w_texture_path;
+	char	**grid;
+	char	*n_texture_path;
+	char	*s_texture_path;
+	char	*e_texture_path;
+	char	*w_texture_path;
 
-	char *c_color;
-	char *f_color;
+	char	*c_color;
+	char	*f_color;
 
-	int width;
-	int height;
+	int		width;
+	int		height;
+	char	**map;
 
 }	t_map;
 
 typedef struct s_env
 {
-	t_map *map;
-	
+	t_map	*map;
+
 }	t_env;
 
 typedef struct s_player
@@ -47,7 +48,8 @@ typedef struct s_data
 	void		*window_ptr;
 	int			moves;
 	char		direction;
-	t_player	p_pos;
+	double		player[MAX_POS];
+	t_player	p_pos; // supp ?
 	t_map		map;
 }	t_data;
 

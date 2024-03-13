@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/12 12:11:37 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:16:58 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,17 @@
 # define KEY_W			119
 # define KEY_S			115
 # define KEY_D			100
+
+# define SCREEN_WIDTH	1024
+# define SCREEN_HEIGHT	512
+
+enum	e_player
+{
+	POS_Y,
+	POS_X,
+	MAX_POS,
+};
+
+# define SCREEN		"Window size too big"
 
 #endif

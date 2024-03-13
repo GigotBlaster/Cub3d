@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   i_to_null.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:45:49 by lcadinot          #+#    #+#             */
-/*   Updated: 2024/03/12 12:09:18 by lcadinot         ###   ########.fr       */
+/*   Created: 2024/03/13 12:38:29 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 14:18:25 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	ft_bzero(void *s, size_t n)
+void	init_to_null_game(t_data *game)
 {
-	char	*str;
-
-	str = s;
-	while (n > 0)
-	{
-		*str = '\0';
-		str++;
-		n--;
-	}
+	game->mlx_ptr = NULL;
+	game->window_ptr = NULL;
+	game->player[POS_X] = 0;
+	game->player[POS_Y] = 0;
+	game->map.map = NULL;
+	game->map.width = 0;
+	game->map.height = 0;
 }

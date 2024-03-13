@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   err.msg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:24:14 by lcadinot          #+#    #+#             */
-/*   Updated: 2024/03/12 12:05:25 by lcadinot         ###   ########.fr       */
+/*   Created: 2024/03/13 13:00:15 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 14:17:40 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub.h"
+#include "cub.h"
 
-size_t	ft_strlen(const char *str)
+int	err_msg(char *s1, char *s2, int ret_val)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (s1)
+		write(STDOUT_FILENO, s1, ft_strlen(s1));
+	if (s2)
+		write(STDOUT_FILENO, s2, ft_strlen(s2));
+	write(STDOUT_FILENO, "\n", 1);
+	return (ret_val);
 }

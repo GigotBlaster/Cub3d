@@ -16,16 +16,22 @@ vpath %.h $(INC_DIR):
 
 
 SRCS		=	main.c \
-				ft_strlen.c \
+				err.msg.c \
+				destroy_mlx.c \
+				free.c \
+				gnl.c \
+				gnl_utils.c \
+				i_mlx.c \
+				i_to_null.c \
+				ft_bzero.c \
 				ft_calloc.c \
 				ft_strcpy.c \
-				gnl_utils.c \
-				map_utils.c \
-				map_utils_2.c \
 				ft_strdup.c \
-				gnl.c \
-				ft_bzero.c \
-				# PlayerMove.c \
+				ft_strlen.c \
+				map_utils_2.c \
+				map_utils.c \
+				minimap_moves.c \
+				player_moves.c \
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 
