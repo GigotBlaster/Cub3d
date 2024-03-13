@@ -6,13 +6,12 @@
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/12 14:19:39 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:31:58 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
-
 
 typedef struct s_map
 {
@@ -35,10 +34,6 @@ typedef struct s_env
 	t_map *map;
 	
 }	t_env;
-// typedef struct s_map
-// {
-// 	char		**map;
-// }	t_map;
 
 typedef struct s_player
 {
@@ -55,6 +50,5 @@ typedef struct s_data
 	t_player	p_pos;
 	t_map		map;
 }	t_data;
-
 
 #endif
