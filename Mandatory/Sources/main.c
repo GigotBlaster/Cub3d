@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:06:54 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:15:09 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_key_press(int key, t_data *game)
 int	main(void)
 {
 	t_data	game;
-	
+
 	init_to_null_game(&game);
 	if (init_mlx(&game))
 		return (free_all(&game), 3);

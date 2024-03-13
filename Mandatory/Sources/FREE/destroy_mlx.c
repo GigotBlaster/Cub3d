@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:22:38 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:17:53 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	destroy_all(t_data *game)
 		ft_free(game->mlx_ptr);
 	}
 }
-

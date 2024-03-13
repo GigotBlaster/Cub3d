@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:05:54 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:16:58 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ enum	e_player
 	POS_X,
 	MAX_POS,
 };
-
 
 # define SCREEN		"Window size too big"
 

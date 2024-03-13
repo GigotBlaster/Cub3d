@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:50:53 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 12:34:48 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:20:25 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_move_down(t_data *game)
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
 			game->p_pos.y++;
 		//	player_minimap(game);
-
 		//	ft_render(game);
 		}
 	}
@@ -95,7 +94,6 @@ void	ft_move(int key, t_data *game) //opti avec les bon code clavier ?
 		ft_move_left(game);
 	}
 }
-
 
 // void	move_player(t_data *game, char c)
 // {
