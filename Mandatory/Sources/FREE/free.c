@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:05:54 by npetitpi         ###   ########.fr       */
+/*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 13:26:33 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include <cub.h>
 
-# define KEY_ESC		65307
-# define KEY_UP			65362
-# define KEY_DOWN		65364
-# define KEY_LEFT		65361
-# define KEY_RIGHT		65363
-# define KEY_A			97
-# define KEY_W			119
-# define KEY_S			115
-# define KEY_D			100
-
-# define SCREEN_WIDTH	1024
-# define SCREEN_HEIGHT	512
-
-enum	e_player
+void	ft_free(void *adress)
 {
-	POS_Y,
-	POS_X,
-	MAX_POS,
-};
+	if (adress)
+		free(adress);
+	adress = NULL;
+}
 
+void	free_tab(char **tab, int n)
+{
+	int	i;
 
-# define SCREEN		"Window size too big"
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i] && (i < n || n == 0))
+	{
+		ft_free(tab[i]);
+		i++;
+	}
+	ft_free(tab);
+}
 
-#endif
+void	free_all(t_data *game)
+{
+	free_tab(game->map.map, 0);
+	destroy_all(game);
+}
+

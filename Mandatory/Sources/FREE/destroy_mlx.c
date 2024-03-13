@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   destroy_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:05:54 by npetitpi         ###   ########.fr       */
+/*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/13 13:22:38 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#include "cub.h"
 
-# define KEY_ESC		65307
-# define KEY_UP			65362
-# define KEY_DOWN		65364
-# define KEY_LEFT		65361
-# define KEY_RIGHT		65363
-# define KEY_A			97
-# define KEY_W			119
-# define KEY_S			115
-# define KEY_D			100
-
-# define SCREEN_WIDTH	1024
-# define SCREEN_HEIGHT	512
-
-enum	e_player
+void	destroy_all(t_data *game)
 {
-	POS_Y,
-	POS_X,
-	MAX_POS,
-};
+	if (game->window_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->window_ptr);
+	if (game->mlx_ptr)
+	{
+		mlx_destroy_window(game->mlx_ptr, game->window_ptr);
+		ft_free(game->mlx_ptr);
+	}
+}
 
-
-# define SCREEN		"Window size too big"
-
-#endif

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:32:22 by lcadinot          #+#    #+#             */
-/*   Updated: 2024/03/12 12:14:16 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:33:42 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub.h"
+#include "cub.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
