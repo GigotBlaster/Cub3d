@@ -6,13 +6,14 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:43:30 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:54:16 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
+# include "struct.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -28,7 +29,6 @@
 
 # include "../mlx/mlx.h"
 # include "define.h"
-# include "struct.h"
 
 /****************************/
 /*			 ERROR			*/
@@ -72,8 +72,9 @@ void	init_to_null_game(t_data *data);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *str);
 void	ft_bzero(void *s, size_t n);
-char	*ft_strcpy(char *dest, char *src);
+char 	*ft_strcpy(char *dest, char *src);
 
 /****************************/
 /*			 MAP			*/
