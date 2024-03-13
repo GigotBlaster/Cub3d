@@ -26,7 +26,9 @@ SRCS		=	main.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_strcpy.c \
+				ft_strdup.c \
 				ft_strlen.c \
+				map_utils_2.c \
 				map_utils.c \
 				minimap_moves.c \
 				player_moves.c \

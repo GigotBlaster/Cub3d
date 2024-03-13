@@ -6,14 +6,13 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 13:54:16 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:03:37 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
-# include "struct.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -29,6 +28,7 @@
 
 # include "../mlx/mlx.h"
 # include "define.h"
+# include "struct.h"
 
 /****************************/
 /*			 ERROR			*/
@@ -74,15 +74,19 @@ void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *str);
 void	ft_bzero(void *s, size_t n);
-char 	*ft_strcpy(char *dest, char *src);
+char	*ft_strcpy(char *dest, char *src);
 
 /****************************/
 /*			 MAP			*/
 /****************************/
 
-void	ft_free_map(t_map *map);
+t_env	*ft_copy_grid(t_env *env, char *buf, int *i);
+t_env	*ft_fill_colors(t_env *env, char *buf);
 t_map	*ft_map_init(void);
+t_env	*ft_fill_texture(t_env *env, char *buf);
 t_map	*ft_fill_grid(t_env *env, const char *av);
+void	ft_free_map(t_map *map);
+
 
 /****************************/
 /*			 MINIMAP		*/
