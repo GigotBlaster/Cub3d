@@ -18,11 +18,14 @@ vpath %.h $(INC_DIR):
 SRCS		=	main.c \
 				ft_strlen.c \
 				ft_calloc.c \
+				ft_strcpy.c \
 				gnl_utils.c \
 				map_utils.c \
+				map_utils_2.c \
+				ft_strdup.c \
 				gnl.c \
 				ft_bzero.c \
-				PlayerMove.c \
+				# PlayerMove.c \
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 

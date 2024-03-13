@@ -6,7 +6,7 @@
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/12 14:15:13 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:19:39 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_env
 	t_map *map;
 	
 }	t_env;
-typedef struct s_map
-{
-	char		**map;
-}	t_map;
+// typedef struct s_map
+// {
+// 	char		**map;
+// }	t_map;
 
 typedef struct s_player
 {

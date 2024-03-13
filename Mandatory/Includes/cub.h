@@ -6,13 +6,14 @@
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/12 14:17:15 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:14:29 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
+# include "struct.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -22,7 +23,6 @@
 # include <stdint.h>
 # include "../mlx/mlx.h"
 # include "define.h"
-# include "struct.h"
 
 /****************************/
 /*			 GNL			*/
@@ -41,13 +41,18 @@ char	*ft_read_new_line(char *line);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *str);
 void	ft_bzero(void *s, size_t n);
+char 	*ft_strcpy(char *dest, char *src);
 
 //map
 
 void ft_free_map(t_map *map);
 t_map *ft_map_init(void);
 t_map *ft_fill_grid(t_env *env, const char *av);
+t_env *ft_fill_colors(t_env *env, char *buf);
+t_env	*ft_copy_grid(t_env *env, char * buf, int *i);
+t_env *ft_fill_texture(t_env *env, char *buf);
 /****************************/
 /*			MOVES			*/
 /****************************/
