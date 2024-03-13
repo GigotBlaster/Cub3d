@@ -100,7 +100,7 @@ void	ft_free_map(t_map *map)
 	free(map->f_color);
 	while (map->grid[i] != NULL)
 	{
-		printf("%s", map->grid[i]);
+		// printf("%s", map->grid[i]);
 		free(map->grid[i++]);
 	}
 	free(map->grid);

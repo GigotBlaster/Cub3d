@@ -4,7 +4,6 @@ t_env	*ft_copy_grid(t_env *env, char *buf, int *i)
 {
 	if (buf[0] == '1')
 	{
-		printf("%d\n", *i);
 		env->map->width = ft_strlen(buf);
 		env->map->grid[*i] = ft_calloc(env->map->width + 1, sizeof(char));
 		ft_strcpy(env->map->grid[(*i)++], buf);
