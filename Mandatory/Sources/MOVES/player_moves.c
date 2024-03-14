@@ -6,118 +6,131 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:50:53 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:20:25 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:00:31 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	ft_move_up(t_data *game)
+void	ft_move_player(t_data *game, char c)
 {
-	if (game->map.map[game->p_pos.y - 1][game->p_pos.x] != '1')
+	double	new[2];
+
+	if (c == 'W')
+	{
+		new[X] = game->p_pos.x;
+		new[Y] = game->p_pos.y - game->player_speed;
+	}
+	else if (c == 'S')
+	{
+		new[X] = game->p_pos.x;
+		new[Y] = game->p_pos.y + game->player_speed;
+	}
+	else if (c == 'A')
+	{
+		new[X] = game->p_pos.x - game->player_speed;
+		new[Y] = game->p_pos.y;
+	}
+	else if (c == 'D')
+	{
+		new[X] = game->p_pos.x + game->player_speed;
+		new[Y] = game->p_pos.y;
+	}
+
+	if (game->map.map[(int)new[Y]][(int)new[X]] != '1')
 	{
 		game->moves++;
-		if (game->map.map[game->p_pos.y - 1][game->p_pos.x] == '0')
+		if (game->map.map[(int)new[Y]][(int)new[X]] == '0')
 		{
-			game->map.map[game->p_pos.y - 1][game->p_pos.x] = 'N';
+			game->map.map[(int)new[Y]][(int)new[X]] = 'N';
 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
-			game->p_pos.y--;
-		//	player_minimap(game);
-		//	ft_render(game);
+			game->p_pos.x = (int)new[X];
+			game->p_pos.y = (int)new[Y];
 		}
 	}
 }
 
-void	ft_move_down(t_data *game)
-{
-	if (game->map.map[game->p_pos.y + 1][game->p_pos.x] != '1')
-	{
-		game->moves++;
-		if (game->map.map[game->p_pos.y + 1][game->p_pos.x] == '0')
-		{
-			game->map.map[game->p_pos.y + 1][game->p_pos.x] = 'N';
-			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
-			game->p_pos.y++;
-		//	player_minimap(game);
-		//	ft_render(game);
-		}
-	}
-}
 
-void	ft_move_right(t_data *game)
-{
-	if (game->map.map[game->p_pos.y][game->p_pos.x + 1] != '1')
-	{
-		game->moves++;
-		if (game->map.map[game->p_pos.y][game->p_pos.x + 1] == '0')
-		{
-			game->map.map[game->p_pos.y][game->p_pos.x + 1] = 'N';
-			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
-			game->p_pos.x++;
-		//	player_minimap(game);
-		//	ft_render(game);
-		}
-	}
-}
 
-void	ft_move_left(t_data *game)
-{
-	if (game->map.map[game->p_pos.y][game->p_pos.x - 1] != '1')
-	{
-		game->moves++;
-		if (game->map.map[game->p_pos.y][game->p_pos.x - 1] == '0')
-		{
-			game->map.map[game->p_pos.y][game->p_pos.x - 1] = 'N';
-			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
-			game->p_pos.x--;
-		//	player_minimap(game);
-		//	ft_render(game);
-		}
-	}
-}
-
-void	ft_move(int key, t_data *game) //opti avec les bon code clavier ?
-{
-	// player_minimap(game);
-	if (key == 'w' || key == KEY_UP)
-		ft_move_up(game);
-	else if (key == 's' || key == KEY_DOWN)
-		ft_move_down(game);
-	else if (key == 'd' || key == KEY_RIGHT)
-	{
-		game->direction = 'r';
-		ft_move_right(game);
-	}
-	else if (key == 'a' || key == KEY_LEFT)
-	{
-		game->direction = 'l';
-		ft_move_left(game);
-	}
-}
-
-// void	move_player(t_data *game, char c)
+// void	ft_move_up(t_data *game)
 // {
-// 	double	new[2];
-
-// 	if (c == 'W')
+// 	if (game->map.map[game->p_pos.y - 1][game->p_pos.x] != '1')
 // 	{
-// 		new[X] = ((new[Y] = d->ray.pos[Y] + (d->player_speed * d->ray.dir[Y]),
-// 					d->ray.pos[X] + (d->player_speed * d->ray.dir[X])));
-// 		if (d->map.map[(int)(d->ray.pos[Y] + d->ray.dir[Y] * 0.2)][(int)new[X]]
-// 			== '1')
-// 			return ;
+// 		game->moves++;
+// 		if (game->map.map[game->p_pos.y - 1][game->p_pos.x] == '0')
+// 		{
+// 			game->map.map[game->p_pos.y - 1][game->p_pos.x] = 'N';
+// 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
+// 			game->p_pos.y--;
+// 		//	player_minimap(game);
+// 		//	ft_render(game);
+// 		}
 // 	}
-// 	else if (c == 'S')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] - (d->player_speed * d->ray.dir[Y]),
-// 					d->ray.pos[X] - (d->player_speed * d->ray.dir[X])));
-// 	else if (c == 'A')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] - (d->player_speed * d->ray.dir[X]),
-// 					d->ray.pos[X] + (d->player_speed * d->ray.dir[Y])));
-// 	else if (c == 'D')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] + (d->player_speed * d->ray.dir[X]),
-// 					d->ray.pos[X] - (d->player_speed * d->ray.dir[Y])));
-// 	if (d->map.map[(int)new[Y]][(int)new[X]] == '1')
-// 		return ;
-// 	update_pos(d, new);
-// 	return ;
+// }
+
+// void	ft_move_down(t_data *game)
+// {
+// 	if (game->map.map[game->p_pos.y + 1][game->p_pos.x] != '1')
+// 	{
+// 		game->moves++;
+// 		if (game->map.map[game->p_pos.y + 1][game->p_pos.x] == '0')
+// 		{
+// 			game->map.map[game->p_pos.y + 1][game->p_pos.x] = 'N';
+// 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
+// 			game->p_pos.y++;
+// 		//	player_minimap(game);
+// 		//	ft_render(game);
+// 		}
+// 	}
+// }
+
+// void	ft_move_right(t_data *game)
+// {
+// 	if (game->map.map[game->p_pos.y][game->p_pos.x + 1] != '1')
+// 	{
+// 		game->moves++;
+// 		if (game->map.map[game->p_pos.y][game->p_pos.x + 1] == '0')
+// 		{
+// 			game->map.map[game->p_pos.y][game->p_pos.x + 1] = 'N';
+// 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
+// 			game->p_pos.x++;
+// 		//	player_minimap(game);
+// 		//	ft_render(game);
+// 		}
+// 	}
+// }
+
+// void	ft_move_left(t_data *game)
+// {
+// 	if (game->map.map[game->p_pos.y][game->p_pos.x - 1] != '1')
+// 	{
+// 		game->moves++;
+// 		if (game->map.map[game->p_pos.y][game->p_pos.x - 1] == '0')
+// 		{
+// 			game->map.map[game->p_pos.y][game->p_pos.x - 1] = 'N';
+// 			game->map.map[game->p_pos.y][game->p_pos.x] = '0';
+// 			game->p_pos.x--;
+// 		//	player_minimap(game);
+// 		//	ft_render(game);
+// 		}
+// 	}
+// }
+
+// void	ft_move(int key, t_data *game) //opti avec les bon code clavier ?
+// {
+// 	// player_minimap(game);
+// 	if (key == 'w' || key == KEY_UP)
+// 		ft_move_up(game);
+// 	else if (key == 's' || key == KEY_DOWN)
+// 		ft_move_down(game);
+// 	else if (key == 'd' || key == KEY_RIGHT)
+// 	{
+// 		game->direction = 'r';
+// 		ft_move_right(game);
+// 	}
+// 	else if (key == 'a' || key == KEY_LEFT)
+// 	{
+// 		game->direction = 'l';
+// 		ft_move_left(game);
+// 	}
 // }

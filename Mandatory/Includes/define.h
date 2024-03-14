@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:16:58 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:27:56 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define SCREEN_WIDTH	1024
 # define SCREEN_HEIGHT	512
 
+# define X 1
+# define Y 0
+
+# define PATH_F "images/floor.xpm"
+
 enum	e_player
 {
 	POS_Y,
@@ -33,6 +38,14 @@ enum	e_player
 	MAX_POS,
 };
 
+enum	e_img
+{
+	FLOOR,
+	MAX_IMG,
+};
+
 # define SCREEN		"Window size too big"
+# define NO_CUB		"Need file.xpm"
+# define OPEN		" : OPEN failed"
 
 #endif

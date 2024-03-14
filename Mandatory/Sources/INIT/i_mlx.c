@@ -6,13 +6,13 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:56:19 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:18:20 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:29:24 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	check_screen_size(t_data *game)
+int	check_screen_size(t_data *game) //fenetre tiens dans ecran
 {
 	int	width;
 	int	height;
@@ -34,5 +34,13 @@ int	init_mlx(t_data *game)
 			SCREEN_HEIGHT, "My Wolfenstein");
 	if (game->window_ptr == NULL)
 		return (2);
+		
+	//init image
+	//init texture
+	//init visu
+	//inti player
+	
+	//raycasting ?
+	
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:40:52 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:19:28 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_player
 	int		y;
 }	t_player;
 
+typedef struct s_image
+{
+
+}t_image;
+
+
 typedef struct s_data
 {
 	void		*mlx_ptr;
@@ -49,6 +55,8 @@ typedef struct s_data
 	int			moves;
 	char		direction;
 	double		player[MAX_POS];
+	double		player_speed;
+	t_image		img[MAX_IMG];
 	t_player	p_pos; // supp ?
 	t_map		map;
 }	t_data;

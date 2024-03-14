@@ -6,28 +6,11 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:51 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:19:52 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:01:55 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-t_map	*ft_map_init(void)
-{
-	t_map	*map;
-
-	map = (t_map *)malloc(sizeof(t_map));
-	map->width = 0;
-	map->height = 0;
-	map->grid = NULL;
-	map->n_texture_path = NULL;
-	map->s_texture_path = NULL;
-	map->e_texture_path = NULL;
-	map->w_texture_path = NULL;
-	map->c_color = NULL;
-	map->f_color = NULL;
-	return (map);
-}
 
 t_env	*ft_fill_texture(t_env *env, char *buf)
 {

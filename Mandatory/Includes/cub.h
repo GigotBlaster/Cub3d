@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:16:32 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:25:07 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
 # include <stddef.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
 # include <limits.h>
-# include <X11/X.h>
+# include <X11/Xlib.h>
+# include <X11/keysym.h>
+# include <stdint.h>
 
 # include "../mlx/mlx.h"
 # include "define.h"
@@ -95,6 +96,9 @@ void	player_minimap(t_data *game);
 /****************************/
 /*			MOVES			*/
 /****************************/
+
+void	ft_move_player(t_data *game, char c);
+
 
 void	ft_move_up(t_data *game);
 void	ft_move_down(t_data *game);

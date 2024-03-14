@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:18:25 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:59:55 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,22 @@ void	init_to_null_game(t_data *game)
 	game->map.map = NULL;
 	game->map.width = 0;
 	game->map.height = 0;
+	//game->player_speed = 0.1; //voir vitesse maybe trop arpide ?
+}
+
+t_map	*ft_map_init(void)
+{
+	t_map	*map;
+
+	map = (t_map *)malloc(sizeof(t_map));
+	map->width = 0;
+	map->height = 0;
+	map->grid = NULL;
+	map->n_texture_path = NULL;
+	map->s_texture_path = NULL;
+	map->e_texture_path = NULL;
+	map->w_texture_path = NULL;
+	map->c_color = NULL;
+	map->f_color = NULL;
+	return (map);
 }
