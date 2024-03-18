@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:51 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:01:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:51:15 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,4 @@ t_map	*ft_fill_grid(t_env *env, const char *av)
 		buf = get_next_line(fd, 0);
 	}
 	return (close(fd), env->map);
-}
-
-void	ft_free_map(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	free(map->n_texture_path);
-	free(map->s_texture_path);
-	free(map->e_texture_path);
-	free(map->w_texture_path);
-	free(map->c_color);
-	free(map->f_color);
-	while (map->grid[i] != NULL)
-	{
-		// printf("%s", map->grid[i]);
-		free(map->grid[i++]);
-	}
-	free(map->grid);
-	free(map);
 }

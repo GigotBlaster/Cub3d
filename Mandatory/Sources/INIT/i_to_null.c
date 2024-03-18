@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/14 13:59:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:52:23 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_to_null_game(t_data *game)
 	//game->player_speed = 0.1; //voir vitesse maybe trop arpide ?
 }
 
-t_map	*ft_map_init(void)
+t_map	*ft_map_init_null(void)
 {
 	t_map	*map;
 

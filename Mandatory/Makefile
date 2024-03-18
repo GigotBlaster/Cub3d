@@ -32,6 +32,9 @@ SRCS		=	main.c \
 				map_utils.c \
 				minimap_moves.c \
 				player_moves.c \
+				check_map.c \
+				check_name.c \
+				data_on_map.c 
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 

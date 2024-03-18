@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:27:56 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:32:56 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ enum	e_img
 	MAX_IMG,
 };
 
-# define SCREEN		"Window size too big"
-# define NO_CUB		"Need file.xpm"
-# define OPEN		" : OPEN failed"
-
+# define SCREEN			"Window size too big"
+# define NO_CUB			" : Need file .cub"
+# define OPEN			" : OPEN failed"
+# define NOT_XPM		" : is not a .xpm"
+# define OPEN_TEXTURES	"Cannot open all the textures"
+# define ARG_START		"Need 2 arguments"
 #endif
