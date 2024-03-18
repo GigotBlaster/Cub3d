@@ -185,13 +185,11 @@ int	main(int ac, char **av)
 	init_to_null_game(&game);
 	env = malloc(sizeof(t_env));
 	env->map = ft_map_init_null();
-		
 	//CHECK MAP A COMPLETER
 	if (init_mlx(&game))
 		return (free_all(&game), 3);
 	if (map_ok(&game, env, av[1])) //test ok -> final : if(check_map(&game, av[1]))
 		return (2);
-		
 	//player_minimap(&game);
 // Close window_ptr
 	mlx_key_hook(game.window_ptr, ft_key_press, (void *)&game);  //regrouper loophook ?
