@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:51 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:01:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:49:00 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_env	*ft_fill_texture(t_env *env, char *buf)
 	return (env);
 }
 
-static int	ft_check_fill(t_env *env, char *buf)
+int	ft_check_fill(t_env *env, char *buf)
 {
 	int		i;
 
@@ -62,6 +62,8 @@ t_map	*ft_fill_grid(t_env *env, const char *av)
 	char	*buf;
 
 	fd = open(av, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
 	buf = get_next_line(fd, 0);
 	i = 0;
 	while (buf != NULL)
@@ -71,6 +73,8 @@ t_map	*ft_fill_grid(t_env *env, const char *av)
 	}
 	close(fd);
 	env->map->grid = ft_calloc(i + 1, sizeof(char *));
+	if (env->map->grid == NULL)
+		return (NULL);
 	fd = open(av, O_RDONLY);
 	buf = get_next_line(fd, 0);
 	i = 0;
@@ -80,24 +84,4 @@ t_map	*ft_fill_grid(t_env *env, const char *av)
 		buf = get_next_line(fd, 0);
 	}
 	return (close(fd), env->map);
-}
-
-void	ft_free_map(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	free(map->n_texture_path);
-	free(map->s_texture_path);
-	free(map->e_texture_path);
-	free(map->w_texture_path);
-	free(map->c_color);
-	free(map->f_color);
-	while (map->grid[i] != NULL)
-	{
-		// printf("%s", map->grid[i]);
-		free(map->grid[i++]);
-	}
-	free(map->grid);
-	free(map);
 }

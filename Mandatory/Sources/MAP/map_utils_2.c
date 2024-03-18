@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:19:36 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:19:37 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:02:27 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ t_env	*ft_fill_colors(t_env *env, char *buf)
 		// printf("fill colors -> f %s\n", env->map->f_color);
 	}
 	return (env);
+}
+
+void ft_print_map(t_env *env)
+{
+	int i;
+
+	i = 0;
+	while (env->map->grid[i] != NULL)
+		printf("%s", env->map->grid[i++]);
+	printf("\nf color->%s", env->map->f_color);
+	printf("c color->%s", env->map->c_color);
+	printf("s->%s", env->map->s_texture_path);
+	printf("n->%s", env->map->n_texture_path);
+	printf("e->%s", env->map->e_texture_path);
+	printf("w->%s\n", env->map->w_texture_path);
 }

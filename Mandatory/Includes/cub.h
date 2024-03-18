@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:25:07 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:49:44 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_read_new_line(char *line);
 int		check_screen_size(t_data *game);
 int		init_mlx(t_data *game);
 void	init_to_null_game(t_data *data);
-
+t_map	*ft_map_init_null(void);
 /****************************/
 /*			 LIBFT			*/
 /****************************/
@@ -82,8 +82,9 @@ char	*ft_strcpy(char *dest, char *src);
 
 t_env	*ft_copy_grid(t_env *env, char *buf, int *i);
 t_env	*ft_fill_colors(t_env *env, char *buf);
-t_map	*ft_map_init(void);
 t_env	*ft_fill_texture(t_env *env, char *buf);
+int	ft_check_fill(t_env *env, char *buf);
+void ft_print_map(t_env *env);
 t_map	*ft_fill_grid(t_env *env, const char *av);
 void	ft_free_map(t_map *map);
 
@@ -105,6 +106,14 @@ void	ft_move_down(t_data *game);
 void	ft_move_left(t_data *game);
 void	ft_move_right(t_data *game);
 void	ft_move(int key, t_data *game);
+
+/****************************/
+/*			PARSING			*/
+/****************************/
+
+int		map_ok(t_data *game, t_env *env, char *file);
+int		name_ok(char *file, char *str);
+int		check_data_map(char **map);
 
 /****************************/
 /*			MAIN			*/
