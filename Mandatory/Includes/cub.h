@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/18 15:49:44 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:33:15 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,18 @@
 /*			 ERROR			*/
 /****************************/
 
-int		err_msg(char *s1, char *s2, int ret_val);
+int		msg_error(char *s1, char *s2, int ret_val);
 
 /****************************/
 /*			FREE			*/
 /****************************/
 
 void	destroy_all(t_data *game);
-void	ft_free(void *adress);
+void	destroy_img(t_data *game);
+void	ft_free(void *address);
 void	free_tab(char **tab, int n);
 void	free_all(t_data *game);
+void	free_img(t_map map);
 
 /****************************/
 /*			 GNL			*/
@@ -71,7 +73,7 @@ t_map	*ft_map_init_null(void);
 /****************************/
 
 void	*ft_calloc(size_t nmemb, size_t size);
-size_t	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 char	*ft_strdup(const char *str);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strcpy(char *dest, char *src);
@@ -83,10 +85,12 @@ char	*ft_strcpy(char *dest, char *src);
 t_env	*ft_copy_grid(t_env *env, char *buf, int *i);
 t_env	*ft_fill_colors(t_env *env, char *buf);
 t_env	*ft_fill_texture(t_env *env, char *buf);
-int	ft_check_fill(t_env *env, char *buf);
-void ft_print_map(t_env *env);
+int		ft_check_fill(t_env *env, char *buf);
+void	ft_print_map(t_env *env);
 t_map	*ft_fill_grid(t_env *env, const char *av);
-void	ft_free_map(t_map *map);
+void	ft_free_map_lst(t_map *map);
+
+
 
 /****************************/
 /*			 MINIMAP		*/
@@ -111,7 +115,7 @@ void	ft_move(int key, t_data *game);
 /*			PARSING			*/
 /****************************/
 
-int		map_ok(t_data *game, t_env *env, char *file);
+int		map_ok(t_data *game,  char *file);
 int		name_ok(char *file, char *str);
 int		check_data_map(char **map);
 
@@ -120,5 +124,53 @@ int		check_data_map(char **map);
 /****************************/
 
 int		ft_key_press(int key, t_data *game);
+
+
+
+/****************************/
+/*			TESTuWu			*/
+/****************************/
+
+int		render(t_data *game);
+void	print_background(t_data *game);
+void	raycasting(t_data *game);
+void	posi_cam(t_ray *ray, int screen_width, int x);
+void	distance_btwn_ray_hv(t_ray *ray);
+void	algo_dda(t_ray *ray, t_map *map);
+void	wall_lenght(t_ray *ray, int screen_height);
+void	draw_wall(t_data *data, int x, t_ray *ray, t_textures *text);
+void	print_box(t_data *data, int y, int x, int color);
+void	map_to_minimap(t_data *data, int y, int x);
+void	move_cam(t_data *data, double mouv);
+void	move_player(t_data *d, char c);
+void	update_pos(t_data *data, double newpos[2]);
+int		init_images(t_data *game);
+int		init_textures(t_data *game);
+int		visu(t_data *game);
+void	init_pos_player(t_data *data);
+
+
+
+int		check_open_textures(t_map img);
+int		check_wall(char **map);
+t_lst	*ft_lstnew(char *str);
+t_lst	*ft_lstlast(t_lst *lst);
+int		ft_lstsize(t_lst *lst);
+int		check_path(t_data *game);
+int		map(t_data *game, int fd);
+int		verif_game(char **map);
+int		is_player(t_data *game, char **map);
+int		verif_char(t_lst *check, t_lst *tmp_map);
+int		data_map_store(t_data *game, t_lst *stock_map);
+t_lst	*mapstore(int fd);
+int		path_store(t_data *game, t_lst *maplst, int a);
+int		path_store2(t_data *game, t_lst *maplst, int a);
+int		path_store3(t_data *game, t_lst *maplst, int a);
+int		check_tab(char **tab);
+int		check_size_textures(t_map img);
+int		make_rgb(int r, int g, int b);
+int		return_is_player(int p);
+
+char	*ft_strndup(char *str, int n);
 
 #endif

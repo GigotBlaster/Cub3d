@@ -6,13 +6,13 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:15 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:17:40 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:46:47 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	err_msg(char *s1, char *s2, int ret_val)
+int	msg_error(char *s1, char *s2, int ret_val)
 {
 	if (s1)
 		write(STDOUT_FILENO, s1, ft_strlen(s1));

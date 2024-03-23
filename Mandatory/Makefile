@@ -16,13 +16,14 @@ vpath %.h $(INC_DIR):
 
 
 SRCS		=	main.c \
-				err.msg.c \
+				msg_error.c \
 				destroy_mlx.c \
 				free.c \
 				gnl.c \
 				gnl_utils.c \
 				i_mlx.c \
 				i_to_null.c \
+				i_textures.c \
 				ft_bzero.c \
 				ft_calloc.c \
 				ft_strcpy.c \
@@ -34,7 +35,9 @@ SRCS		=	main.c \
 				player_moves.c \
 				check_map.c \
 				check_name.c \
-				data_on_map.c 
+				check_textures.c \
+				data_on_map.c \
+				testuwu.c
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 

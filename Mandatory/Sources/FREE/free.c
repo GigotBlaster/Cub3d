@@ -6,17 +6,19 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/18 13:51:09 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:46:06 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	ft_free(void *adress)
+void	ft_free(void *address)
 {
-	if (adress)
-		free(adress);
-	adress = NULL;
+	if (address)
+	{
+		free(address);
+		address = NULL;
+	}
 }
 
 void	free_tab(char **tab, int n)
@@ -34,23 +36,29 @@ void	free_tab(char **tab, int n)
 	ft_free(tab);
 }
 
+void	free_img(t_map map)
+{
+	ft_free(map.n_texture_path);
+	ft_free(map.s_texture_path);
+	ft_free(map.w_texture_path);
+	ft_free(map.e_texture_path);
+	ft_free(map.c_color);
+	ft_free(map.f_color);
+}
+
 void	free_all(t_data *game)
 {
-	//free_tab(game->map.map, 0);
+	free_img(game->map);
+	//free map
 	destroy_all(game);
 }
+
 
 void	ft_free_map(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	free(map->n_texture_path);
-	free(map->s_texture_path);
-	free(map->e_texture_path);
-	free(map->w_texture_path);
-	free(map->c_color);
-	free(map->f_color);
 	while (map->grid[i] != NULL)
 	{
 		// printf("%s", map->grid[i]);
@@ -58,4 +66,20 @@ void	ft_free_map(t_map *map)
 	}
 	free(map->grid);
 	free(map);
+}
+
+void	free_map_lst(t_lst *lst_map)
+{
+	t_lst	*before;
+
+	if (!lst_map)
+		return ;
+	before = lst_map;
+	while (lst_map)
+	{
+		lst_map = lst_map->next;
+		ft_free(before->mapline);
+		ft_free(before);
+		before = lst_map;
+	}
 }
