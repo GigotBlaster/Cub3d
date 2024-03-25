@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:39:36 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:50:31 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,6 @@ typedef struct s_image
 }t_image;
 
 
-// typedef struct s_image
-// {
-// 	void	*img;
-// }t_image;
-
-
-
 typedef struct s_ray
 {
 	int			hit;
@@ -81,7 +74,7 @@ typedef struct s_ray
 	float		dir[2];
 	float		plan[2];
 	float		raydir[2];
-	float		side[2];
+	float		ray_side[2];
 	float		delta[2];
 	float		cam_x;
 	float		texture_dist;

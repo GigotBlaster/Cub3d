@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:33:15 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:28:49 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_read_new_line(char *line);
 
 int		check_screen_size(t_data *game);
 int		init_mlx(t_data *game);
-void	init_to_null_game(t_data *data);
+void	init_to_null_game(t_data *game);
 t_map	*ft_map_init_null(void);
 /****************************/
 /*			 LIBFT			*/
@@ -132,22 +132,22 @@ int		ft_key_press(int key, t_data *game);
 /****************************/
 
 int		render(t_data *game);
-void	print_background(t_data *game);
+void	print_back(t_data *game);
 void	raycasting(t_data *game);
 void	posi_cam(t_ray *ray, int screen_width, int x);
 void	distance_btwn_ray_hv(t_ray *ray);
 void	algo_dda(t_ray *ray, t_map *map);
 void	wall_lenght(t_ray *ray, int screen_height);
-void	draw_wall(t_data *data, int x, t_ray *ray, t_textures *text);
-void	print_box(t_data *data, int y, int x, int color);
-void	map_to_minimap(t_data *data, int y, int x);
-void	move_cam(t_data *data, double mouv);
+void	draw_wall(t_data *game, int x, t_ray *ray, t_textures *text);
+void	print_box(t_data *game, int y, int x, int color);
+void	map_to_minimap(t_data *game, int y, int x);
+void	move_cam(t_data *game, double mouv);
 void	move_player(t_data *d, char c);
-void	update_pos(t_data *data, double newpos[2]);
+void	update_pos(t_data *game, double newpos[2]);
 int		init_images(t_data *game);
 int		init_textures(t_data *game);
 int		visu(t_data *game);
-void	init_pos_player(t_data *data);
+void	init_pos_player(t_data *game);
 
 
 
@@ -168,8 +168,13 @@ int		path_store2(t_data *game, t_lst *maplst, int a);
 int		path_store3(t_data *game, t_lst *maplst, int a);
 int		check_tab(char **tab);
 int		check_size_textures(t_map img);
-int		make_rgb(int r, int g, int b);
+int		algo_rgb(int r, int g, int b);
 int		return_is_player(int p);
+void	set_value(t_data *game, char c, int i, int j);
+void	set_value_2(t_data *game, char c);
+int		rgb(t_data *game);
+void	player_minimap(t_data *game);
+
 
 char	*ft_strndup(char *str, int n);
 

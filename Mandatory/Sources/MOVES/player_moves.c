@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:50:53 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:30:09 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:26:48 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,53 +139,53 @@
 
 //???Check Princesse
 
-// void	move_cam(t_data *data, double mouv)
-// {
-// 	double	save_dir;
-// 	double	save_plan;
+void	move_cam(t_data *game, double mouvmt)
+{
+	double	save_dir;
+	double	save_plan;
 
-// 	save_dir = data->ray.dir[X];
-// 	save_plan = data->ray.plan[X];
-// 	data->ray.dir[X] = data->ray.dir[X] * cos(mouv)
-// 		- data->ray.dir[Y] * sin(mouv);
-// 	data->ray.dir[Y] = save_dir * sin(mouv) + data->ray.dir[Y] * cos(mouv);
-// 	data->ray.plan[X] = data->ray.plan[X] * cos(mouv)
-// 		- data->ray.plan[Y] * sin(mouv);
-// 	data->ray.plan[Y] = save_plan * sin(mouv) + data->ray.plan[Y] * cos(mouv);
-// }
+	save_plan = game->ray.plan[X];
+	save_dir = game->ray.dir[X];
+	game->ray.dir[X] = game->ray.dir[X] * cos(mouvmt)
+		- game->ray.dir[Y] * sin(mouvmt);
+	game->ray.dir[Y] = save_dir * sin(mouvmt) + game->ray.dir[Y] * cos(mouvmt);
+	game->ray.plan[X] = game->ray.plan[X] * cos(mouvmt)
+		- game->ray.plan[Y] * sin(mouvmt);
+	game->ray.plan[Y] = save_plan * sin(mouvmt) + game->ray.plan[Y] * cos(mouvmt);
+}
 
-// void	move_player(t_data *d, char c)
+// void	move_player(t_data *dir, char c)
 // {
 // 	double	new[2];
 
 // 	if (c == 'W')
 // 	{
-// 		new[X] = ((new[Y] = d->ray.pos[Y] + (d->player_speed * d->ray.dir[Y]),
-// 					d->ray.pos[X] + (d->player_speed * d->ray.dir[X])));
-// 		if (d->map.grid[(int)(d->ray.pos[Y] + d->ray.dir[Y] * 0.2)][(int)new[X]]
+// 		new[X] = ((new[Y] = dir->ray.pos[Y] + (dir->player_speed * dir->ray.dir[Y]),
+// 					dir->ray.pos[X] + (dir->player_speed * dir->ray.dir[X])));
+// 		if (dir->map.grid[(int)(dir->ray.pos[Y] + dir->ray.dir[Y] * 0.2)][(int)new[X]]
 // 			== '1')
 // 			return ;
 // 	}
 // 	else if (c == 'S')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] - (d->player_speed * d->ray.dir[Y]),
-// 					d->ray.pos[X] - (d->player_speed * d->ray.dir[X])));
+// 		new[X] = ((new[Y] = dir->ray.pos[Y] - (dir->player_speed * dir->ray.dir[Y]),
+// 					dir->ray.pos[X] - (dir->player_speed * dir->ray.dir[X])));
 // 	else if (c == 'A')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] - (d->player_speed * d->ray.dir[X]),
-// 					d->ray.pos[X] + (d->player_speed * d->ray.dir[Y])));
+// 		new[X] = ((new[Y] = dir->ray.pos[Y] - (dir->player_speed * dir->ray.dir[X]),
+// 					dir->ray.pos[X] + (dir->player_speed * dir->ray.dir[Y])));
 // 	else if (c == 'D')
-// 		new[X] = ((new[Y] = d->ray.pos[Y] + (d->player_speed * d->ray.dir[X]),
-// 					d->ray.pos[X] - (d->player_speed * d->ray.dir[Y])));
-// 	if (d->map.grid[(int)new[Y]][(int)new[X]] == '1')
+// 		new[X] = ((new[Y] = dir->ray.pos[Y] + (dir->player_speed * dir->ray.dir[X]),
+// 					dir->ray.pos[X] - (dir->player_speed * dir->ray.dir[Y])));
+// 	if (dir->map.grid[(int)new[Y]][(int)new[X]] == '1')
 // 		return ;
-// 	update_pos(d, new);
+// 	update_pos(dir, new);
 // 	return ;
 // }
 
-// void	update_pos(t_data *data, double newpos[2])
-// {
-// 	data->player[POS_X] = newpos[X];
-// 	data->player[POS_Y] = newpos[Y];
-// 	data->ray.pos[X] = newpos[X];
-// 	data->ray.pos[Y] = newpos[Y];
-// }
+void	update_pos(t_data *game, double newpos[2])
+{
+	game->player[POS_X] = newpos[X];
+	game->player[POS_Y] = newpos[Y];
+	game->ray.pos[X] = newpos[X];
+	game->ray.pos[Y] = newpos[Y];
+}
 

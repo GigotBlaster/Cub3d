@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:47:49 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:17:23 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	destroy_img(t_data *game)
 	if (game->img[FLOOR].img)
 		mlx_destroy_image(game->mlx_ptr, game->img[FLOOR].img);
 	game->img[FLOOR].img = NULL;
-	if (game->img[WALL_NORTH].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[WALL_NORTH].img);
-	game->img[WALL_NORTH].img = NULL;
-	if (game->img[WALL_SOUTH].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[WALL_SOUTH].img);
-	game->img[WALL_SOUTH].img = NULL;
-	if (game->img[WALL_EAST].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[WALL_EAST].img);
-	game->img[WALL_EAST].img = NULL;
-	if (game->img[WALL_WEST].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[WALL_WEST].img);
-	game->img[WALL_WEST].img = NULL;
+	if (game->img[NORTH].img)
+		mlx_destroy_image(game->mlx_ptr, game->img[NORTH].img);
+	game->img[NORTH].img = NULL;
+	if (game->img[SOUTH].img)
+		mlx_destroy_image(game->mlx_ptr, game->img[SOUTH].img);
+	game->img[SOUTH].img = NULL;
+	if (game->img[EAST].img)
+		mlx_destroy_image(game->mlx_ptr, game->img[EAST].img);
+	game->img[EAST].img = NULL;
+	if (game->img[WEST].img)
+		mlx_destroy_image(game->mlx_ptr, game->img[WEST].img);
+	game->img[WEST].img = NULL;
 }
 
 

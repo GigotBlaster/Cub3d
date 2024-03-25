@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:46:51 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:26:33 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,12 @@ int	keypress(int keysym, t_data *game)
 		free_all(game);
 		exit (7);
 	}
-	if (keysym == KEY_RIGHT)
-		move_cam(game, 0.05);
-	if (keysym == XK_Shift_L)
-	{
-		if (game->player_speed == 0.05)
-			game->player_speed *= 2;
-		else
-			game->player_speed = 0.05;
-	}
-	if (keysym == KEY_W)
-		move_player(game, 'W');
-	if (keysym == KEY_S)
-		move_player(game, 'S');
-	if (keysym == KEY_A)
-		move_player(game, 'A');
-	if (keysym == KEY_D)
-		move_player(game, 'D');
 	return (keysym);
 }
 
-int	key_realease(t_data *data)
+int	key_realease(t_data *game)
 {
-	free_all(data);
+	free_all(game);
 	exit (8);
 	return (0);
 }
@@ -70,7 +53,7 @@ int	key_realease(t_data *data)
 
 void	loop_hook(t_data game)
 {
-	mlx_loop_hook(game.window_ptr, &render, &game);
+	mlx_loop_hook(game.mlx_ptr, &render, &game);
 	mlx_hook(game.window_ptr, KeyPress, KeyPressMask, &keypress, &game);
 	mlx_hook(game.window_ptr, ClientMessage, LeaveWindowMask, &key_realease,
 		&game);
@@ -84,7 +67,7 @@ int	main(int ac, char **av)
 //	t_env *env;
 	(void)ac;
 
-	//game = (t_data){0};princess
+	game = (t_data){0}; //princess
 	if (ac != 2)
 		return (msg_error(ARG_START, NULL, 1));
 	init_to_null_game(&game);
@@ -99,7 +82,7 @@ int	main(int ac, char **av)
 		
 // 	//player_minimap(&game);
 // // Close window_ptr
-	//loop_hook(game);
+	loop_hook(game);
 // 	// ...
 // 	// Wait for closing
 // 	//ft_free_map(env->map);

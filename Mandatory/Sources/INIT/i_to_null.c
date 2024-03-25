@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 13:11:21 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:18:59 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ void	init_to_null_game(t_data *game)
 {
 	game->mlx_ptr = NULL;
 	game->window_ptr = NULL;
-	game->map.grid = NULL;  //change
+	game->map.grid = NULL;
 	game->player[POS_X] = 0;
 	game->player[POS_Y] = 0;
-	//game->player_speed = 0.1; //voir vitesse maybe trop arpide ?
 	game->map.c_color_int = 0;
 	game->map.f_color_int = 0;
 	init_to_null_images(game);

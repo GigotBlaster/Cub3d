@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:18:36 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:39:46 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:29:00 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,26 +228,26 @@ int	is_digit(char *str)
 
 int	init_images(t_data *game)
 {
-	game->img[WALL_NORTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
-			game->map.n_texture_path, &game->img[WALL_NORTH].width,
-			&game->img[WALL_NORTH].height);
-	printf("-----***---->%p\n", game->img[WALL_NORTH].img);
-	if (!game->img[WALL_NORTH].img)
+	game->img[NORTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
+			game->map.n_texture_path, &game->img[NORTH].width,
+			&game->img[NORTH].height);
+	printf("-----***---->%p\n", game->img[NORTH].img);
+	if (!game->img[NORTH].img)
 		return (msg_error(game->map.n_texture_path, XPM, 1));
-	game->img[WALL_SOUTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
-			game->map.s_texture_path, &game->img[WALL_SOUTH].width,
-			&game->img[WALL_SOUTH].height);
-	if (!game->img[WALL_SOUTH].img)
+	game->img[SOUTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
+			game->map.s_texture_path, &game->img[SOUTH].width,
+			&game->img[SOUTH].height);
+	if (!game->img[SOUTH].img)
 		return (msg_error(game->map.s_texture_path, XPM, 2));
-	game->img[WALL_EAST].img = mlx_xpm_file_to_image(game->mlx_ptr,
-			game->map.e_texture_path, &game->img[WALL_EAST].width,
-			&game->img[WALL_EAST].height);
-	if (!game->img[WALL_EAST].img)
+	game->img[EAST].img = mlx_xpm_file_to_image(game->mlx_ptr,
+			game->map.e_texture_path, &game->img[EAST].width,
+			&game->img[EAST].height);
+	if (!game->img[EAST].img)
 		return (msg_error(game->map.e_texture_path, XPM, 3));
-	game->img[WALL_WEST].img = mlx_xpm_file_to_image(game->mlx_ptr,
-			game->map.w_texture_path, &game->img[WALL_WEST].width,
-			&game->img[WALL_WEST].height);
-	if (!game->img[WALL_WEST].img)
+	game->img[WEST].img = mlx_xpm_file_to_image(game->mlx_ptr,
+			game->map.w_texture_path, &game->img[WEST].width,
+			&game->img[WEST].height);
+	if (!game->img[WEST].img)
 		return (msg_error(game->map.w_texture_path, XPM, 4));
 	return (0);
 }
@@ -261,23 +261,20 @@ int	render(t_data *game)
 	int	y;
 
 	y = 0;
-	print_background(game);
+	print_back(game);
+	printf("----->%s\n", "ICI");
 	raycasting(game);
 	while (game->map.grid[y])
 	{
 		x = 0;
-		while (game->map.grid[y][x])
-		{
-			map_to_minimap(game, y, x);
-			x++;
-		}
 		y++;
 	}
+	mlx_put_image_to_window(game-> mlx_ptr, game->window_ptr, game->img[VISU].img, 0, 0);
 	return (0);
 }
 
 
-void	print_background(t_data *game)
+void	print_back(t_data *game)
 {
 	int	j;
 	int	i;
@@ -291,6 +288,8 @@ void	print_background(t_data *game)
 				= game->map.c_color_int;
 		j++;
 	}
+		//printf("%d\n", game->img[VISU].address[j * game->img[VISU].line_lengh_pix / 4 + i]);
+	
 	while (j < SCREEN_HEIGHT)
 	{
 		i = -1;
@@ -326,7 +325,7 @@ void	raycasting(t_data *game)
 {
 	int	x;
 
-	print_background(game);
+	print_back(game);
 	x = 0;
 	while (x < SCREEN_WIDTH)
 	{
@@ -353,9 +352,9 @@ void	posi_cam(t_ray *ray, int screen_width, int x)
 void	wall_lenght(t_ray *ray, int screen_height)
 {
 	if (ray->side == 0)
-		ray->texture_dist = (ray->side[X] - ray->delta[X]);
+		ray->texture_dist = (ray->ray_side[X] - ray->delta[X]);
 	else
-		ray->texture_dist = (ray->side[Y] - ray->delta[Y]);
+		ray->texture_dist = (ray->ray_side[Y] - ray->delta[Y]);
 	if (ray->texture_dist == 0)
 		ray->texture_dist = 0.01;
 	ray->height_l = (double)(screen_height / ray->texture_dist);
@@ -370,14 +369,14 @@ void	wall_lenght(t_ray *ray, int screen_height)
 void	distance_btwn_ray_hv(t_ray *ray)
 {
 	if (ray->raydir[X] < 0)
-		ray->side[X] = (ray->pos[X] - ray->map[X]) * ray->delta[X];
+		ray->ray_side[X] = (ray->pos[X] - ray->map[X]) * ray->delta[X];
 	else
-		ray->side[X] = (ray->map[X] + 1.0 - ray->pos[X])
+		ray->ray_side[X] = (ray->map[X] + 1.0 - ray->pos[X])
 			* ray->delta[X];
 	if (ray->raydir[Y] < 0)
-		ray->side[Y] = (ray->pos[Y] - ray->map[Y]) * ray->delta[Y];
+		ray->ray_side[Y] = (ray->pos[Y] - ray->map[Y]) * ray->delta[Y];
 	else
-		ray->side[Y] = (ray->map[Y] + 1.0 - ray->pos[Y])
+		ray->ray_side[Y] = (ray->map[Y] + 1.0 - ray->pos[Y])
 			* ray->delta[Y];
 	if (ray->raydir[X] < 0)
 		ray->step[X] = -1;
@@ -395,15 +394,15 @@ void	algo_dda(t_ray *ray, t_map *map)
 	ray->hit = 0;
 	while (ray->hit == 0)
 	{
-		if (ray->side[X] < ray->side[Y])
+		if (ray->ray_side[X] < ray->ray_side[Y])
 		{
-			ray->side[X] += ray->delta[X];
+			ray->ray_side[X] += ray->delta[X];
 			ray->map[X] += ray->step[X];
 			ray->side = 0 ;
 		}
 		else
 		{
-			ray->side[Y] += ray->delta[Y];
+			ray->ray_side[Y] += ray->delta[Y];
 			ray->map[Y] += ray->step[Y];
 			ray->side = 1 ;
 		}
@@ -412,28 +411,28 @@ void	algo_dda(t_ray *ray, t_map *map)
 	}
 }
 
-void	draw_wall(t_data *data, int x, t_ray *ray, t_textures *text)
+void	draw_wall(t_data *game, int x, t_ray *ray, t_textures *text)
 {
 	int	j;
 
 	init_walls(ray, text);
 	j = ray->draw_start;
-	text->tex_x = (int)(text->wall_x * (float)data->img[text->dir_text].width);
+	text->tex_x = (int)(text->wall_x * (float)game->img[text->dir_text].width);
 	if (ray->side == 0 && ray->raydir[X] > 0)
-		text->tex_x = data->img[text->dir_text].width - text->tex_x - 1;
+		text->tex_x = game->img[text->dir_text].width - text->tex_x - 1;
 	if (ray->side == 1 && ray->raydir[Y] < 0)
-		text->tex_x = data->img[text->dir_text].width - text->tex_x - 1;
-	text->step = 1.0 * data->img[text->dir_text].height / ray->height_l;
+		text->tex_x = game->img[text->dir_text].width - text->tex_x - 1;
+	text->step = 1.0 * game->img[text->dir_text].height / ray->height_l;
 	text->tex_pos = (ray->draw_start - SCREEN_HEIGHT / 2 + \
 		ray->height_l / 2) * text->step;
 	while (j <= ray->draw_end)
 	{
-		text->tex_y = (int)text->tex_pos & (data->img[text->dir_text].height - 1);
+		text->tex_y = (int)text->tex_pos & (game->img[text->dir_text].height - 1);
 		text->tex_pos += text->step;
 		if (j < SCREEN_HEIGHT && x < SCREEN_WIDTH)
-			data->img[VISU].address[j * data->img[VISU].line_lengh_pix / 4 + x]
-				= data->img[text->dir_text].address[text->tex_y
-				* data->img[text->dir_text].line_lengh_pix / 4 + text->tex_x];
+			game->img[VISU].address[j * game->img[VISU].line_lengh_pix / 4 + x]
+				= game->img[text->dir_text].address[text->tex_y
+				* game->img[text->dir_text].line_lengh_pix / 4 + text->tex_x];
 		j++;
 	}
 }
@@ -565,11 +564,11 @@ int	verif_game(char **map)
 
 
 
-int	return_is_player(int p)
+int	return_is_player(int player)
 {
-	if (p < 1)
+	if (player < 1)
 		return (msg_error(NO_PLAYER, NULL, 1));
-	else if (p > 1)
+	else if (player > 1)
 		return (msg_error(TOO_PLAYER, NULL, 1));
 	return (0);
 }
@@ -742,9 +741,102 @@ int	check_tab(char **tab)
 	return (0);
 }
 //princess
-int	make_rgb(int r, int g, int b)
+int	algo_rgb(int r, int g, int b)
 {
-	return (r * 65536 + g * 256 + b);
+	return (r * 12500 + g * 256 + b);
 }
 
 
+void	set_value(t_data *game, char c, int i, int j)
+{
+	if (c == 'N')
+	{
+		game->ray.dir[X] = 0;
+		game->ray.dir[Y] = -1;
+		game->ray.plan[X] = 0.66;
+		game->ray.plan[Y] = 0;
+		game->player[ANGLE] = M_PI / 2;
+	}
+	else if (c == 'S')
+	{
+		game->ray.dir[X] = 0;
+		game->ray.dir[Y] = 1;
+		game->ray.plan[X] = -0.66;
+		game->ray.plan[Y] = 0;
+		game->player[ANGLE] = 1.5 * M_PI;
+	}
+	else
+		set_value_2(game, c);
+	game->player[POS_Y] = i;
+	game->player[POS_X] = j;
+}
+
+void	set_value_2(t_data *game, char c)
+{
+	if (c == 'E')
+	{
+		game->ray.dir[X] = 1;
+		game->ray.dir[Y] = 0;
+		game->ray.plan[X] = 0;
+		game->ray.plan[Y] = 0.66;
+		game->player[ANGLE] = M_PI;
+	}
+	else if (c == 'W')
+	{
+		game->ray.dir[X] = -1;
+		game->ray.dir[Y] = 0;
+		game->ray.plan[X] = 0;
+		game->ray.plan[Y] = -0.66;
+		game->player[ANGLE] = 0;
+	}
+}
+
+int	is_player(t_data *game, char **map)
+{
+	int	i;
+	int	j;
+	int	p;
+
+	i = -1;
+	p = 0;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'W' || map[i][j] == 'E')
+			{
+				p++;
+				set_value(game, map[i][j], i, j);
+				game->map.grid[i][j] = '0';
+			}
+		}
+	}
+	return (return_is_player(p));
+}
+
+//princess 
+int	rgb(t_data *game)
+{
+	char	**tab;
+	int		tab_int[3];
+
+	tab = ft_split(game->map.c_color, ',');
+	if (check_tab(tab))
+		return (free_tab(tab, 0), 1);
+	tab_int[0] = ft_atoi(tab[0]);
+	tab_int[1] = ft_atoi(tab[1]);
+	tab_int[2] = ft_atoi(tab[2]);
+	game->map.c_color_int = algo_rgb(tab_int[0], tab_int[1], tab_int[2]);
+	free_tab(tab, 0);
+	tab = ft_split(game->map.f_color, ',');
+	if (check_tab(tab))
+		return (free_tab(tab, 0), 1);
+	tab_int[0] = ft_atoi(tab[0]);
+	tab_int[1] = ft_atoi(tab[1]);
+	tab_int[2] = ft_atoi(tab[2]);
+	game->map.f_color_int = algo_rgb(tab_int[0], tab_int[1], tab_int[2]);
+	free_tab(tab, 0);
+	return (0);
+}

@@ -6,12 +6,11 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 14:34:18 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:01:04 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
 
 int	map_ok(t_data *game,  char *file)
 {
@@ -25,12 +24,14 @@ int	map_ok(t_data *game,  char *file)
 	if (map(game, fd))
 		return (close(fd), 3);
 	close(fd);
-	// if (rgb(game))
-	// 	return (free_tab(game->map.grid, 0), free_img(game->map),
-	// 		msg_error(RGB, NULL, 4));
+	if (rgb(game))
+		return (free_tab(game->map.grid, 0), free_img(game->map),
+			msg_error(RGB, NULL, 4));
 	if (check_open_textures(game->map))
 		return (free_tab(game->map.grid, 0), free_img(game->map), 5);
-	//WALL AFTER FINI
+	if (check_wall(game->map.grid))
+		return (free_tab(game->map.grid, 0), free_img(game->map),
+			msg_error(WALLS, NULL, 6));
 	return (0);
 }
 
