@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:30:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 12:15:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:39:17 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	map_to_minimap(t_data *game, int x, int y)
 	else if (game->map.grid[x][y] == '0')
 		print_minimap(game, x, y, 16777215);
 }
-
-
 
 void	print_minimap(t_data *game, int x, int y, int color)
 {

@@ -2,7 +2,7 @@
 static char *south[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 256 2 ",
-"   c black",
+"   c #000000",
 ".  c #0000A8",
 "X  c #00A800",
 "o  c #00A8A8",
