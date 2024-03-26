@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:28:49 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:29:55 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	distance_btwn_ray_hv(t_ray *ray);
 void	algo_dda(t_ray *ray, t_map *map);
 void	wall_lenght(t_ray *ray, int screen_height);
 void	draw_wall(t_data *game, int x, t_ray *ray, t_textures *text);
-void	print_box(t_data *game, int y, int x, int color);
+void	print_minimap(t_data *game, int y, int x, int color);
 void	map_to_minimap(t_data *game, int y, int x);
 void	move_cam(t_data *game, double mouv);
 void	move_player(t_data *d, char c);

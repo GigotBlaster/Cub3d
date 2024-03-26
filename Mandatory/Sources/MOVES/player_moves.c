@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:50:53 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:26:48 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:39:22 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@
 // {
 // 	if (game->map.map[game->p_pos.y + 1][game->p_pos.x] != '1')
 // 	{
-// 		game->moves++;
+// 		game->++;
 // 		if (game->map.map[game->p_pos.y + 1][game->p_pos.x] == '0')
 // 		{
 // 			game->map.map[game->p_pos.y + 1][game->p_pos.x] = 'N';
@@ -154,32 +154,7 @@ void	move_cam(t_data *game, double mouvmt)
 	game->ray.plan[Y] = save_plan * sin(mouvmt) + game->ray.plan[Y] * cos(mouvmt);
 }
 
-// void	move_player(t_data *dir, char c)
-// {
-// 	double	new[2];
 
-// 	if (c == 'W')
-// 	{
-// 		new[X] = ((new[Y] = dir->ray.pos[Y] + (dir->player_speed * dir->ray.dir[Y]),
-// 					dir->ray.pos[X] + (dir->player_speed * dir->ray.dir[X])));
-// 		if (dir->map.grid[(int)(dir->ray.pos[Y] + dir->ray.dir[Y] * 0.2)][(int)new[X]]
-// 			== '1')
-// 			return ;
-// 	}
-// 	else if (c == 'S')
-// 		new[X] = ((new[Y] = dir->ray.pos[Y] - (dir->player_speed * dir->ray.dir[Y]),
-// 					dir->ray.pos[X] - (dir->player_speed * dir->ray.dir[X])));
-// 	else if (c == 'A')
-// 		new[X] = ((new[Y] = dir->ray.pos[Y] - (dir->player_speed * dir->ray.dir[X]),
-// 					dir->ray.pos[X] + (dir->player_speed * dir->ray.dir[Y])));
-// 	else if (c == 'D')
-// 		new[X] = ((new[Y] = dir->ray.pos[Y] + (dir->player_speed * dir->ray.dir[X]),
-// 					dir->ray.pos[X] - (dir->player_speed * dir->ray.dir[Y])));
-// 	if (dir->map.grid[(int)new[Y]][(int)new[X]] == '1')
-// 		return ;
-// 	update_pos(dir, new);
-// 	return ;
-// }
 
 void	update_pos(t_data *game, double newpos[2])
 {

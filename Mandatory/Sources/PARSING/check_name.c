@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:07:42 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 13:53:40 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:37:43 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	name_ok(char *file, char *str) //ok
 	int	len;
 
 	len = ft_strlen(file);
-	if (file[len - 4] != str[0] || file[len - 3] != str[1] 
+	if (file[len - 4] != str[0] || file[len - 3] != str[1]
 		|| file[len - 2] != str[2] || file[len - 1] != str[3])
 		return (1);
 	return (0);

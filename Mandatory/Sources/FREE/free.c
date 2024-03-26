@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 11:46:06 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:26:58 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	free_img(t_map map)
 void	free_all(t_data *game)
 {
 	free_img(game->map);
-	//free map
+	free_tab(game->map.grid, 0);
 	destroy_all(game);
 }
 

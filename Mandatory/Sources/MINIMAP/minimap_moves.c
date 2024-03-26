@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:30:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:21:42 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:15:55 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,41 @@
 // 		player_color);
 // }
 
+
+
+void	map_to_minimap(t_data *game, int x, int y)
+{
+	if (x == (int)game->player[POS_X] && y == (int)game->player[POS_Y])
+		print_minimap(game, x, y, 60000);
+	else if (game->map.grid[x][y] == '1')
+		print_minimap(game, x, y, 0);
+	else if (game->map.grid[x][y] == '0')
+		print_minimap(game, x, y, 16777215);
+}
+
+
+
+void	print_minimap(t_data *game, int x, int y, int color)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 10)
+	{
+		j = 0;
+		while (j < 10)
+		{
+			game->img[VISU].address[(x * 8) * game->img[VISU].line_lengh_pix / 4
+				+ (y * 8)] = color;
+			game->img[VISU].address[(x * 8 + i) * game->img[VISU].line_lengh_pix / 4
+				+ (y * 8)] = color;
+			game->img[VISU].address[(x * 8 + i) * game->img[VISU].line_lengh_pix / 4
+				+ (y * 8 + j)] = color;
+			game->img[VISU].address[(x * 8) * game->img[VISU].line_lengh_pix / 4
+				+ (y * 8 + j)] = color;
+			j++;
+		}
+		i++;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:18:36 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:29:00 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:27:52 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,7 +231,6 @@ int	init_images(t_data *game)
 	game->img[NORTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
 			game->map.n_texture_path, &game->img[NORTH].width,
 			&game->img[NORTH].height);
-	printf("-----***---->%p\n", game->img[NORTH].img);
 	if (!game->img[NORTH].img)
 		return (msg_error(game->map.n_texture_path, XPM, 1));
 	game->img[SOUTH].img = mlx_xpm_file_to_image(game->mlx_ptr,
@@ -260,14 +259,18 @@ int	render(t_data *game)
 	int	x;
 	int	y;
 
-	y = 0;
+	x = 0;
 	print_back(game);
-	printf("----->%s\n", "ICI");
 	raycasting(game);
-	while (game->map.grid[y])
+	while (game->map.grid[x])
 	{
-		x = 0;
-		y++;
+		y = 0;
+		while (game->map.grid[x][y])
+		{
+			map_to_minimap(game, x, y);
+			y++;
+		}
+		x++;
 	}
 	mlx_put_image_to_window(game-> mlx_ptr, game->window_ptr, game->img[VISU].img, 0, 0);
 	return (0);

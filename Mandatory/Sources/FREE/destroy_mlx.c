@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:17:23 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:39:27 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	destroy_img(t_data *game)
 {
-	if (game->img[CEILING].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[CEILING].img);
-	game->img[CEILING].img = NULL;
-	if (game->img[FLOOR].img)
-		mlx_destroy_image(game->mlx_ptr, game->img[FLOOR].img);
-	game->img[FLOOR].img = NULL;
+	// if (game->img[CEILING].img)
+	// 	mlx_destroy_image(game->mlx_ptr, game->img[CEILING].img);
+	// game->img[CEILING].img = NULL;
+	// if (game->img[FLOOR].img)
+	// 	mlx_destroy_image(game->mlx_ptr, game->img[FLOOR].img);
+	// game->img[FLOOR].img = NULL;
 	if (game->img[NORTH].img)
 		mlx_destroy_image(game->mlx_ptr, game->img[NORTH].img);
 	game->img[NORTH].img = NULL;
