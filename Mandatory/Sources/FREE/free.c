@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 13:26:58 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:34:46 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	ft_free_map(t_map *map)
 	i = 0;
 	while (map->grid[i] != NULL)
 	{
-		// printf("%s", map->grid[i]);
 		free(map->grid[i++]);
 	}
 	free(map->grid);

@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 14:35:22 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:26:06 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void	ft_free_map_lst(t_map *map);
 /*			 MINIMAP		*/
 /****************************/
 
-void	player_minimap(t_data *game);
 
 /****************************/
 /*			MOVES			*/
@@ -173,7 +172,6 @@ int		return_is_player(int p);
 void	set_value(t_data *game, char c, int i, int j);
 void	set_value_2(t_data *game, char c);
 int		rgb(t_data *game);
-void	player_minimap(t_data *game);
 
 
 char	*ft_strndup(char *str, int n);

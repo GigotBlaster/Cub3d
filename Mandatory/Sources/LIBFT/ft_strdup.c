@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:21:14 by lcadinot          #+#    #+#             */
-/*   Updated: 2024/03/14 12:41:05 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:34:49 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,3 @@ char	*ft_strdup(const char *str)
 	dest[i] = '\0';
 	return (dest);
 }
-/*
-int	main(int argc, char **argv)
-{
-	printf("%s\n", ft_strdup(argv[1]));
-	return (0);
-}
-*/
