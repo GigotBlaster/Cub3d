@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testuwu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:18:36 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 13:27:52 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:37:44 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,7 +292,6 @@ void	print_back(t_data *game)
 		j++;
 	}
 		//printf("%d\n", game->img[VISU].address[j * game->img[VISU].line_lengh_pix / 4 + i]);
-	
 	while (j < SCREEN_HEIGHT)
 	{
 		i = -1;

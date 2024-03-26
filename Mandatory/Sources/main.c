@@ -6,11 +6,59 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 14:56:17 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:15:13 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+void move_forward(t_data *game, double speed) {
+    // Vérifier si la nouvelle position en X est accessible (pas de mur)
+    if (game->map.grid[(int)(game->ray.pos[Y])]
+                      [(int)(game->ray.pos[X] + game->ray.dir[X] * speed)] == '0') {
+        game->ray.pos[X] += game->ray.dir[X] * speed;
+    }
+    // Vérifier si la nouvelle position en Y est accessible (pas de mur)
+    if (game->map.grid[(int)(game->ray.pos[Y] + game->ray.dir[Y] * speed)]
+                      [(int)(game->ray.pos[X])] == '0') {
+        game->ray.pos[Y] += game->ray.dir[Y] * speed;
+    }
+}
+
+void move_left(t_data *game, double speed) {
+    if (game->map.grid[(int)(game->ray.pos[Y])]
+                      [(int)(game->ray.pos[X] - game->ray.plan[X] * speed)] == '0') {
+        game->ray.pos[X] -= game->ray.plan[X] * speed;
+    }
+    if (game->map.grid[(int)(game->ray.pos[Y] - game->ray.plan[Y] * speed)]
+                      [(int)(game->ray.pos[X])] == '0') {
+        game->ray.pos[Y] -= game->ray.plan[Y] * speed;
+    }
+}
+
+void move_right(t_data *game, double speed) {
+    if (game->map.grid[(int)(game->ray.pos[Y])]
+                      [(int)(game->ray.pos[X] + game->ray.plan[X] * speed)] == '0') {
+        game->ray.pos[X] += game->ray.plan[X] * speed;
+    }
+    if (game->map.grid[(int)(game->ray.pos[Y] + game->ray.plan[Y] * speed)]
+                      [(int)(game->ray.pos[X])] == '0') {
+        game->ray.pos[Y] += game->ray.plan[Y] * speed;
+    }
+}
+
+
+void move_backward(t_data *game, double speed) {
+    if (game->map.grid[(int)(game->ray.pos[Y])]
+                      [(int)(game->ray.pos[X] - game->ray.dir[X] * speed)] == '0') {
+        game->ray.pos[X] -= game->ray.dir[X] * speed;
+    }
+    if (game->map.grid[(int)(game->ray.pos[Y] - game->ray.dir[Y] * speed)]
+                      [(int)(game->ray.pos[X])] == '0') {
+        game->ray.pos[Y] -= game->ray.dir[Y] * speed;
+    }
+}
+
 
 int	keypress(int key, t_data *game)
 {
@@ -64,7 +112,6 @@ int	main(int ac, char **av)
 	init_to_null_game(&game);
 //	env = malloc(sizeof(t_env));
 	//env->map = ft_map_init_null();
-		
 	//CHECK MAP A COMPLETER
 	if (map_ok(&game, av[1]))
 		return (2);
