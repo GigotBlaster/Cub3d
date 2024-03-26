@@ -6,7 +6,7 @@
 /*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:30:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 15:39:17 by lcadinot         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:45:39 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 void	map_to_minimap(t_data *game, int x, int y)
 {
-	if (x == (int)game->player[POS_X] && y == (int)game->player[POS_Y])
+	if (x == (int)game->player[POS_Y] && y == (int)game->player[POS_X])
 		print_minimap(game, x, y, 60000);
 	else if (game->map.grid[x][y] == '1')
 		print_minimap(game, x, y, 0);
