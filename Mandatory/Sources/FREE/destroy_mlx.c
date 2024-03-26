@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:20:13 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 12:39:27 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:44:07 by lcadinot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	destroy_img(t_data *game)
 	if (game->img[WEST].img)
 		mlx_destroy_image(game->mlx_ptr, game->img[WEST].img);
 	game->img[WEST].img = NULL;
+	mlx_destroy_image(game->mlx_ptr, game->img[VISU].img);
 }
 
 
