@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/25 14:29:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:35:22 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	player_minimap(t_data *game);
 /*			MOVES			*/
 /****************************/
 
-void	ft_move_player(t_data *game, char c);
+void	motion(t_data *move, char key);
 
 
 void	ft_move_up(t_data *game);
@@ -142,7 +142,7 @@ void	draw_wall(t_data *game, int x, t_ray *ray, t_textures *text);
 void	print_minimap(t_data *game, int y, int x, int color);
 void	map_to_minimap(t_data *game, int y, int x);
 void	move_cam(t_data *game, double mouv);
-void	move_player(t_data *d, char c);
+void	player(t_data *move, char key);
 void	update_pos(t_data *game, double newpos[2]);
 int		init_images(t_data *game);
 int		init_textures(t_data *game);

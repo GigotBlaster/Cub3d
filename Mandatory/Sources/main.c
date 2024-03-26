@@ -6,38 +6,31 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 13:39:06 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:56:17 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-// int	ft_key_press(int key, t_data *game)
-// {
-// 	if (key == XK_Escape)
-// 		exit(7);
-// 	if (key == KEY_W)
-// 		ft_move_player(game, 'W');
-// 	if (key == KEY_S)
-// 		ft_move_player(game, 'S');
-// 	if (key == KEY_A)
-// 		ft_move_player(game, 'A');
-// 	if (key == KEY_D)
-// 		ft_move_player(game, 'D');
-// 	return (key);
-// }
 
 int	keypress(int key, t_data *game)
 {
 	if (key == XK_Escape)
 	{
 		free_all(game);
-		exit (7);
+			exit (7);
 	}
 	if (key == KEY_RIGHT)
 		move_cam(game, 0.1);
-	if	(key == KEY_LEFT)
+	if (key == KEY_LEFT)
 		move_cam(game, -0.1);
+	if (key == KEY_W)
+		motion(game, 'W');
+	if (key == KEY_A)
+		motion(game, 'A');
+	if (key == KEY_S)
+		motion(game, 'S');
+	if (key == KEY_D)
+		motion(game, 'D');
 	return (key);
 }
 

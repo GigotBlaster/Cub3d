@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 15:50:31 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:13:56 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ typedef struct s_data
 	int			moves;
 	char		direction;
 	double		player[MAX_POS];
-	double		player_speed;
+	double		speed;
 	t_image		img[MAX_IMG];
 	t_map		map;
 	t_ray		ray;

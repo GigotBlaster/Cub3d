@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:50:53 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 13:39:22 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:11:51 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,11 +156,51 @@ void	move_cam(t_data *game, double mouvmt)
 
 
 
-void	update_pos(t_data *game, double newpos[2])
+void	update_pos(t_data *game, double new_pos[2])
 {
-	game->player[POS_X] = newpos[X];
-	game->player[POS_Y] = newpos[Y];
-	game->ray.pos[X] = newpos[X];
-	game->ray.pos[Y] = newpos[Y];
+	game->player[POS_X] = new_pos[X];
+	game->player[POS_Y] = new_pos[Y];
+	game->ray.pos[X] = new_pos[X];
+	game->ray.pos[Y] = new_pos[Y];
 }
 
+
+// void move_forward(t_data *game, double speed) {
+//     // Vérifier si la nouvelle position en X est accessible (pas de mur)
+//     if (game->map.grid[(int)(game->ray.pos[Y])]
+//                       [(int)(game->ray.pos[X] + game->ray.dir[X] * speed)] == '0') {
+//         game->ray.pos[X] += game->ray.dir[X] * speed;
+//     }
+//     // Vérifier si la nouvelle position en Y est accessible (pas de mur)
+//     if (game->map.grid[(int)(game->ray.pos[Y] + game->ray.dir[Y] * speed)]
+//                       [(int)(game->ray.pos[X])] == '0') {
+//         game->ray.pos[Y] += game->ray.dir[Y] * speed;
+//     }
+// }
+
+void	motion(t_data *move, char key)
+{
+	double	new_pos[2];
+
+	if (key == 'W')
+	{
+		new_pos[X] = ((new_pos[Y] = move->ray.pos[Y] + (move->speed * move->ray.dir[Y]),
+					move->ray.pos[X] + (move->speed * move->ray.dir[X])));
+		if (move->map.grid[(int)(move->ray.pos[Y] + move->ray.dir[Y] * 0.2)][(int)new_pos[X]]
+			== '1')
+			return ;
+	}
+	else if (key == 'S')
+		new_pos[X] = ((new_pos[Y] = move->ray.pos[Y] - (move->speed * move->ray.dir[Y]),
+					move->ray.pos[X] - (move->speed * move->ray.dir[X])));
+	else if (key == 'A')
+		new_pos[X] = ((new_pos[Y] = move->ray.pos[Y] - (move->speed * move->ray.dir[X]),
+					move->ray.pos[X] + (move->speed * move->ray.dir[Y])));
+	else if (key == 'D')
+		new_pos[X] = ((new_pos[Y] = move->ray.pos[Y] + (move->speed * move->ray.dir[X]),
+					move->ray.pos[X] - (move->speed * move->ray.dir[Y])));
+	if (move->map.grid[(int)new_pos[Y]][(int)new_pos[X]] == '1')
+		return ;
+	update_pos(move, new_pos);
+	return ;
+}
