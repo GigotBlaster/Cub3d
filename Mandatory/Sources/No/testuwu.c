@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:18:36 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 16:35:46 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:53:08 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,6 @@ char	*ft_strndup(char *str, int n)
 	return (dup);
 }
 
-int	ft_strncmp(char *str, char *to_find, int n)
-{
-	int	i;
-
-	i = 0;
-	if (!str || !to_find)
-		return (0);
-	while (str[i] && to_find[i] && str[i] == to_find[i] && i < n)
-		i++;
-	if (i == n)
-		return (1);
-	return (0);
-}
 
 int	ft_strchr2(char *str, char c)
 {

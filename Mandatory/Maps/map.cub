@@ -1,8 +1,7 @@
-NO images/matrix.xpm
-SO images/matrix.xpm
-WE images/matrix.xpm
-EA images/matrix.xpm
-
+NO Images/north.xpm
+SO Images/south.xpm
+WE Images/west.xpm
+EA Images/east.xpm
 F 0,0,0
 C 0,0,0
 

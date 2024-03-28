@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:52 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 14:13:56 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 11:50:52 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*window_ptr;
 	int			moves;
+	int			m_moves_struc;
 	char		direction;
 	double		player[MAX_POS];
 	double		speed;

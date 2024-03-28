@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:15:29 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 16:34:46 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:48:47 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,6 @@ void	free_all(t_data *game)
 	destroy_all(game);
 }
 
-
-void	ft_free_map(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while (map->grid[i] != NULL)
-	{
-		free(map->grid[i++]);
-	}
-	free(map->grid);
-	free(map);
-}
-
 void	free_map_lst(t_lst *lst_map)
 {
 	t_lst	*before;
@@ -82,3 +68,4 @@ void	free_map_lst(t_lst *lst_map)
 		before = lst_map;
 	}
 }
+

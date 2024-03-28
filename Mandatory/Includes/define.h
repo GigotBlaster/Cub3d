@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:51:57 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 12:38:55 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 11:57:18 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ enum	e_img
 	SOUTH,
 	EAST,
 	WEST,
-	// FLOOR,
-	// CEILING,
 	VISU,
 	MAX_IMG,
 };

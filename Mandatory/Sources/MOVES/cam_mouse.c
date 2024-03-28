@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   cam_mouse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcadinot <lcadinot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 21:45:49 by lcadinot          #+#    #+#             */
-/*   Updated: 2024/03/12 12:09:18 by lcadinot         ###   ########.fr       */
+/*   Created: 2024/03/28 11:31:43 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/28 11:55:57 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "cub.h"
 
-void	ft_bzero(void *s, size_t n)
+int	cam_mouse(int x, int y, t_data *game)
 {
-	char	*str;
+	double	m_move;
 
-	str = s;
-	while (n > 0)
+	(void) y;
+	if (game->m_moves_struc == 10000)
 	{
-		*str = '\0';
-		str++;
-		n--;
+		game->m_moves_struc = x;
+		return (0);
 	}
+	m_move = (game->m_moves_struc - x) * 0.01;
+	move_cam(game, -m_move);
+	game->m_moves_struc = x;
+	return (0);
 }
+

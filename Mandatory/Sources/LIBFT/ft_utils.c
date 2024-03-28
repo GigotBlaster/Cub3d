@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 14:49:35 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/13 14:18:46 by npetitpi         ###   ########.fr       */
+/*   Created: 2024/03/28 14:51:49 by npetitpi          #+#    #+#             */
+/*   Updated: 2024/03/28 14:56:42 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	char	*str;
 
-	i = 0;
-	while (src[i] != '\0')
+	str = s;
+	while (n > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		*str = '\0';
+		str++;
+		n--;
 	}
-	dest[i] = '\0';
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*dest;
+
+	if (nmemb > 0 && SIZE_MAX / size < nmemb)
+		return (NULL);
+	dest = malloc(nmemb * size);
+	if (!dest)
+		return (NULL);
+	ft_bzero(dest, nmemb * size);
 	return (dest);
 }

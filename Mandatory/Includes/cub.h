@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:46:02 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/26 16:26:06 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:58:54 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		ft_strlen(const char *str);
 char	*ft_strdup(const char *str);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strcpy(char *dest, char *src);
+int		ft_strncmp(char *str, char *to_find, int n);
 
 /****************************/
 /*			 MAP			*/
@@ -102,6 +103,7 @@ void	ft_free_map_lst(t_map *map);
 /****************************/
 
 void	motion(t_data *move, char key);
+int		cam_mouse(int x, int y, t_data *game);
 
 
 void	ft_move_up(t_data *game);

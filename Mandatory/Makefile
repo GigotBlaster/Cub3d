@@ -24,15 +24,13 @@ SRCS		=	main.c \
 				i_mlx.c \
 				i_to_null.c \
 				i_textures.c \
-				ft_bzero.c \
-				ft_calloc.c \
-				ft_strcpy.c \
-				ft_strdup.c \
-				ft_strlen.c \
+				ft_str.c \
+				ft_utils.c \
 				map_utils_2.c \
 				map_utils.c \
 				minimap_moves.c \
 				player_moves.c \
+				cam_mouse.c \
 				check_map.c \
 				check_name.c \
 				check_textures.c \
