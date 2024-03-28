@@ -15,27 +15,32 @@ vpath %.c $(foreach dir, $(SRC_DIR), $(dir):)
 vpath %.h $(INC_DIR):
 
 
-SRCS		=	main.c \
-				msg_error.c \
+SRCS		=	msg_error.c \
 				destroy_mlx.c \
 				free.c \
-				gnl.c \
 				gnl_utils.c \
+				gnl.c \
+				i_map.c \
+				i_map2.c \
 				i_mlx.c \
+				i_player.c \
+				i_rgb.c \
 				i_to_null.c \
-				i_textures.c \
+				raycast.c \
+				render.c \
+				ft_lst.c \
+				ft_split.c \
 				ft_str.c \
 				ft_utils.c \
 				map_utils_2.c \
 				map_utils.c \
 				minimap_moves.c \
 				player_moves.c \
-				cam_mouse.c \
 				check_map.c \
-				check_name.c \
+				check_player.c \
 				check_textures.c \
 				data_on_map.c \
-				testuwu.c
+				main.c
 
 OBJS		=	$(SRCS:%.c=${OBJ_DIR}/%.o)
 

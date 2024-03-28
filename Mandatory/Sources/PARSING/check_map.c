@@ -6,7 +6,7 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/23 15:01:04 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:43:45 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	map_ok(t_data *game,  char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (msg_error(file, OPEN, 2));
-	if (map(game, fd))
+	if (i_map(game, fd))
 		return (close(fd), 3);
 	close(fd);
 	if (rgb(game))
@@ -34,6 +34,18 @@ int	map_ok(t_data *game,  char *file)
 			msg_error(WALLS, NULL, 6));
 	return (0);
 }
+
+int	name_ok(char *file, char *str) //ok
+{
+	int	len;
+
+	len = ft_strlen(file);
+	if (file[len - 4] != str[0] || file[len - 3] != str[1]
+		|| file[len - 2] != str[2] || file[len - 1] != str[3])
+		return (1);
+	return (0);
+}
+
 
 int	check_around(char **map, int y, int x)
 {

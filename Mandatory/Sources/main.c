@@ -6,59 +6,11 @@
 /*   By: npetitpi <npetitpi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:44:58 by npetitpi          #+#    #+#             */
-/*   Updated: 2024/03/28 11:56:30 by npetitpi         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:25:02 by npetitpi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-// void move_forward(t_data *game, double speed) {
-//     // Vérifier si la nouvelle position en X est accessible (pas de mur)
-//     if (game->map.grid[(int)(game->ray.pos[Y])]
-//                       [(int)(game->ray.pos[X] + game->ray.dir[X] * speed)] == '0') {
-//         game->ray.pos[X] += game->ray.dir[X] * speed;
-//     }
-//     // Vérifier si la nouvelle position en Y est accessible (pas de mur)
-//     if (game->map.grid[(int)(game->ray.pos[Y] + game->ray.dir[Y] * speed)]
-//                       [(int)(game->ray.pos[X])] == '0') {
-//         game->ray.pos[Y] += game->ray.dir[Y] * speed;
-//     }
-// }
-
-// void move_left(t_data *game, double speed) {
-//     if (game->map.grid[(int)(game->ray.pos[Y])]
-//                       [(int)(game->ray.pos[X] - game->ray.plan[X] * speed)] == '0') {
-//         game->ray.pos[X] -= game->ray.plan[X] * speed;
-//     }
-//     if (game->map.grid[(int)(game->ray.pos[Y] - game->ray.plan[Y] * speed)]
-//                       [(int)(game->ray.pos[X])] == '0') {
-//         game->ray.pos[Y] -= game->ray.plan[Y] * speed;
-//     }
-// }
-
-// void move_right(t_data *game, double speed) {
-//     if (game->map.grid[(int)(game->ray.pos[Y])]
-//                       [(int)(game->ray.pos[X] + game->ray.plan[X] * speed)] == '0') {
-//         game->ray.pos[X] += game->ray.plan[X] * speed;
-//     }
-//     if (game->map.grid[(int)(game->ray.pos[Y] + game->ray.plan[Y] * speed)]
-//                       [(int)(game->ray.pos[X])] == '0') {
-//         game->ray.pos[Y] += game->ray.plan[Y] * speed;
-//     }
-// }
-
-
-// void move_backward(t_data *game, double speed) {
-//     if (game->map.grid[(int)(game->ray.pos[Y])]
-//                       [(int)(game->ray.pos[X] - game->ray.dir[X] * speed)] == '0') {
-//         game->ray.pos[X] -= game->ray.dir[X] * speed;
-//     }
-//     if (game->map.grid[(int)(game->ray.pos[Y] - game->ray.dir[Y] * speed)]
-//                       [(int)(game->ray.pos[X])] == '0') {
-//         game->ray.pos[Y] -= game->ray.dir[Y] * speed;
-//     }
-// }
-
 
 int	keypress(int key, t_data *game)
 {
@@ -92,8 +44,6 @@ int	key_realease(t_data *game)
 
 void	loop_hook(t_data game)
 {
-	mlx_hook(game.window_ptr, MotionNotify, PointerMotionMask,
-		&cam_mouse, &game);
 	mlx_loop_hook(game.mlx_ptr, &render, &game);
 	mlx_hook(game.window_ptr, KeyPress, KeyPressMask, &keypress, &game);
 	mlx_hook(game.window_ptr, ClientMessage, LeaveWindowMask, &key_realease,
@@ -112,9 +62,6 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (msg_error(ARG_START, NULL, 1));
 	init_to_null_game(&game);
-//	env = malloc(sizeof(t_env));
-	//env->map = ft_map_init_null();
-	//CHECK MAP A COMPLETER
 	if (map_ok(&game, av[1]))
 		return (2);
 	if (init_mlx(&game))
